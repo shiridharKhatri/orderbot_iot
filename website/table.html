@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Table Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f3f4f6",
+              secondary: "#e5e7eb",
+              highlight: "#ffcc00",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-primary text-white min-h-screen flex">
+    <div class="pt-16 px-10 grid lg:grid-cols-5 pb-20 w-full">
+      <div
+        class="bg-black opacity-50 z-20 top-0 bottom-0 left-0 right-0 fixed hidden"
+        id="overlay"
+      ></div>
+      <div class="lg:col-span-1">
+        <nav>
+          <div class="flex justify-between mb-6 px-2 md:mb-16">
+            <h1 class="font-bold uppercase text-[#333333]">
+              <a href="index.html" class="text-xl"
+                >Order <span class="text-[#ff6864] font-bold">Bot</span></a
+              >
+            </h1>
+            <div class="px-4 cursor-pointer lg:hidden" id="open-menu">
+              <i class="fas fa-bars"></i>
+            </div>
+          </div>
+          <ul class="hidden lg:block mr-10 mb-10 text-[#333333]" id="menu">
+            <li class="my-3">
+              <a
+                class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                href="items-4.html"
+              >
+                <i class="fas fa-carrot mr-2"></i>
+                <span>Salads</span>
+              </a>
+            </li>
+            <li class="my-3">
+              <a
+                class="rounded-lg py-2 px-3 text-md tracking-wider font-bold bg-[#ff6864] block"
+                href="items-1.html"
+              >
+                <i class="fas fa-hamburger mr-2"></i>
+                <span>Burgers</span>
+              </a>
+            </li>
+            <li class="my-3">
+              <a
+                class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                href="items-3.html"
+              >
+                <i class="fas fa-pizza-slice mr-2"></i>
+                <span>Pizza</span>
+              </a>
+            </li>
+            <li class="my-3">
+              <a
+                class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                href="items-2.html"
+              >
+                <i class="fas fa-beer mr-2"></i>
+                <span>Drinks</span>
+              </a>
+            </li>
+            <li class="my-3">
+              <a
+                class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                href="items-2.html"
+              >
+                <i class="fas fa-ice-cream"></i>
+                <span>Dessert</span>
+              </a>
+            </li>
+            <div class="mt-16">
+              <span class="px-3 text-gray-500">Other</span>
+              <li class="my-3">
+                <a
+                  class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                  href="orders-1.html"
+                >
+                  <i class="fas fa-redo-alt mr-2"></i>
+                  <span>My Orders</span>
+                </a>
+              </li>
+              <li class="my-3">
+                <a
+                  class="rounded-lg py-2 px-3 text-md tracking-wider font-bold"
+                  href="table.html"
+                >
+                  <i class="fas fa-couch"></i>
+                  <span>Available Seats</span>
+                  
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
+      </div>
+      <div
+        class="container mx-auto text-center p-8 bg-secondary rounded-lg w-full col-span-4 shadow-lg max-w-4xl"
+      >
+        <h1 class="text-3xl font-bold mb-[5rem] text-[#333333]">
+          Restaurant Table Status
+        </h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center"
+        >
+          <div
+            id="table1"
+            class="p-8 rounded-full shadow-lg text-2xl font-semibold transition-all flex flex-col items-center justify-center w-40 h-40 bg-gray-800 border border-gray-600"
+          >
+            Table 1
+            <span class="status mt-2 text-lg text-highlight"></span>
+          </div>
+          <div
+            id="table2"
+            class="p-8 rounded-full shadow-lg text-2xl font-semibold transition-all flex flex-col items-center justify-center w-40 h-40 bg-gray-800 border border-gray-600"
+          >
+            Table 2
+            <span class="status mt-2 text-lg text-highlight"></span>
+          </div>
+          <div
+            id="table3"
+            class="p-8 rounded-full shadow-lg text-2xl font-semibold transition-all flex flex-col items-center justify-center w-40 h-40 bg-gray-800 border border-gray-600"
+          >
+            Table 3
+            <span class="status mt-2 text-lg text-highlight"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.6.1/dist/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://172.25.3.96:3000");
+
+      function updateTableStatus(tableId, status, statusText) {
+        console.log(tableId, status, statusText);
+        const tableElement = document.getElementById(tableId);
+        const statusElement = tableElement.querySelector(".status");
+        if (status === "available") {
+          tableElement.classList.remove("bg-red-600");
+          tableElement.classList.add("bg-green-600");
+          statusElement.textContent = statusText || "Available";
+        } else {
+          tableElement.classList.remove("bg-green-600");
+          tableElement.classList.add("bg-red-600");
+          statusElement.textContent = statusText || "Booked";
+        }
+      }
+
+      socket.on("seatStatusUpdate", (data) => {
+        updateTableStatus("table1", data.table1Status);
+        updateTableStatus("table2", data.table2Status);
+        updateTableStatus("table3", data.table3Status);
+      });
+    </script>
+  </body>
+</html>

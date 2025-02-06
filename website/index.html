@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Order Bot</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -12,85 +12,98 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="text-gray-900 bg-[#faf0dc] font-body" id="body">
-    <div class="top-0 left-0 right-0 p-16 bg-[#ff6864] h-[45vh] rounded-b-full">
-      <div class="flex justify-center">
-        <div class="font-bold uppercase mr-auto">
-          <a href="index.html" class="text-xl"
-            >Order <span class="text-[#ffffff] font-bold">Bot</span></a
+  <body class="bg-[#fef3e8] font-body" id="body">
+    <div
+      class="top-0 left-0 right-0 p-8 sm:p-16 bg-[#ff4f58] h-[45vh] rounded-b-full"
+    >
+      <div class="flex justify-between items-center">
+        <div class="font-bold uppercase">
+          <a href="index.html" class="text-2xl text-white"
+            >Order <span class="text-[#ffefdf] font-bold">Bot</span></a
           >
         </div>
-        <div class="font-bold">
-          <a href="#" class="py-2 px-5">Home</a>
-          <a href="#order" class="py-2 px-5">Order</a>
+        <div class="font-bold text-sm sm:text-lg">
+          <a
+            href="#"
+            class="py-2 px-5 text-white hover:text-[#ffefdf] transition-colors"
+            >Home</a
+          >
+          <a
+            href="#order"
+            class="py-2 px-5 text-white hover:text-[#ffefdf] transition-colors"
+            >Order</a
+          >
         </div>
       </div>
-      <div class="">
+
+      <div class="mt-10">
         <div
-          class="lg:col-span-7 mt-20 text-center text-[30px] font-bold text-[#ffffff] flex justify-center items-center"
+          class="text-center text-[25px] sm:text-[30px] md:text-[35px] font-bold text-white"
         >
           <h1>Enjoy every bite, for food is life's true joy.</h1>
         </div>
       </div>
 
-      <div class="p-32 pt-[100px]" id="order">
-        <div class="font-bold text-center text-5xl">What's the mood?</div>
+      <div class="p-8 sm:p-16 pt-[50px] sm:pt-[100px]" id="order">
+        <div class="font-bold text-center text-3xl sm:text-5xl text-[#ff4f58]">
+          What's the mood?
+        </div>
         <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-12 font-bold text-center items-center text-lg gap-10"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-12 font-bold text-center items-center text-sm sm:text-lg gap-10"
         >
           <a href="items-4.html" class="my-3">
             <div
-              class="bg-[#ff6864] rounded-[10px] w-[40px] h-[40px] md:w-[150px] mx-auto flex items-center gap-2 p-1"
+              class="bg-[#ff4f58] rounded-[10px] w-[60px] h-[60px] sm:w-[150px] mx-auto flex items-center gap-2 p-2 sm:p-3"
             >
               <span
                 class="bg-white p-4 rounded-[8px] text-center h-full flex justify-center items-center"
-                ><i class="fas fa-carrot"></i
+                ><i class="fas fa-carrot text-[#ff4f58]"></i
               ></span>
-              <span class="block text-[#ffffff]">Salad</span>
+              <span class="block text-white">Salad</span>
             </div>
           </a>
           <a href="items-1.html" class="my-3">
             <div
-              class="bg-[#ff6864] rounded-[10px] w-[40px] h-[40px] md:w-[150px] mx-auto flex items-center gap-2 p-1"
+              class="bg-[#ff4f58] rounded-[10px] w-[60px] h-[60px] sm:w-[150px] mx-auto flex items-center gap-2 p-2 sm:p-3"
             >
               <span
                 class="bg-white p-4 rounded-[8px] text-center h-full flex justify-center items-center"
-                ><i class="fas fa-hamburger"></i
+                ><i class="fas fa-hamburger text-[#ff4f58]"></i
               ></span>
-              <span class="block text-[#ffffff]">Burger</span>
+              <span class="block text-white">Burger</span>
             </div>
           </a>
           <a href="items-3.html" class="my-3">
             <div
-              class="bg-[#ff6864] rounded-[10px] w-[40px] h-[40px] md:w-[150px] mx-auto flex items-center gap-2 p-1"
+              class="bg-[#ff4f58] rounded-[10px] w-[60px] h-[60px] sm:w-[150px] mx-auto flex items-center gap-2 p-2 sm:p-3"
             >
               <span
                 class="bg-white p-4 rounded-[8px] text-center h-full flex justify-center items-center"
-                ><i class="fas fa-pizza-slice"></i
+                ><i class="fas fa-pizza-slice text-[#ff4f58]"></i
               ></span>
-              <span class="block text-[#ffffff]">Pizza</span>
+              <span class="block text-white">Pizza</span>
             </div>
           </a>
           <a href="items-2.html" class="my-3">
             <div
-              class="bg-[#ff6864] rounded-[10px] w-[40px] h-[40px] md:w-[150px] mx-auto flex items-center gap-2 p-1"
+              class="bg-[#ff4f58] rounded-[10px] w-[60px] h-[60px] sm:w-[150px] mx-auto flex items-center gap-2 p-2 sm:p-3"
             >
               <span
                 class="bg-white p-4 rounded-[8px] text-center h-full flex justify-center items-center"
-                ><i class="fas fa-cocktail"></i
+                ><i class="fas fa-cocktail text-[#ff4f58]"></i
               ></span>
-              <span class="block text-[#ffffff]">Drinks</span>
+              <span class="block text-white">Drinks</span>
             </div>
           </a>
           <a href="items-1.html" class="my-3">
             <div
-              class="bg-[#ff6864] rounded-[10px] w-[40px] h-[40px] md:w-[150px] mx-auto flex items-center gap-2 p-1"
+              class="bg-[#ff4f58] rounded-[10px] w-[60px] h-[60px] sm:w-[150px] mx-auto flex items-center gap-2 p-2 sm:p-3"
             >
               <span
                 class="bg-white p-4 rounded-[8px] text-center h-full flex justify-center items-center"
-                ><i class="fas fa-ice-cream"></i
+                ><i class="fas fa-ice-cream text-[#ff4f58]"></i
               ></span>
-              <span class="block text-[#ffffff]">Dessert</span>
+              <span class="block text-white">Dessert</span>
             </div>
           </a>
         </div>
