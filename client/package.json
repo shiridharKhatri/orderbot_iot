@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://c4ef-182-93-90-139.ngrok-free.app",
+  "proxy": "https://iot-production-df7c.up.railway.app",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",

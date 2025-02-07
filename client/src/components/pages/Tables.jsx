@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("http://172.25.3.96:3000");
-
+const socket = io("https://iot-production-df7c.up.railway.app")
 const TableStatus = () => {
+  const navigate = useNavigate()
   const [tableStatus, setTableStatus] = useState({
     table1Status: "available",
     table2Status: "available",
     table3Status: "available",
   });
+
 
   useEffect(() => {
     // Listening for updates from the server
@@ -42,6 +44,7 @@ const TableStatus = () => {
                 className={`p-8 rounded-full shadow-lg text-2xl font-semibold transition-all flex flex-col items-center justify-center w-40 h-40 ${updateTableStatus(
                   tableStatus[table + "Status"]
                 )} border border-gray-600`}
+                onClick={()=>navigate(`/menu/${index+1}`)}
               >
                 {`Table ${index + 1}`}
                 <span className="status mt-2 text-lg text-highlight">

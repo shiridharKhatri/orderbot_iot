@@ -9,7 +9,7 @@ const server = http.createServer(app);
 // Allow CORS for Socket.IO connections
 const io = socketIo(server, {
   cors: {
-    origin: ["http://127.0.0.1:5501", "http://localhost:5173"], // The origin where your frontend is running
+    origin: ["http://127.0.0.1:5501", "http://localhost:5173", "https://iot-production-df7c.up.railway.app", "https://shiribiswas.netlify.app"], // The origin where your frontend is running
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true
@@ -19,7 +19,7 @@ const io = socketIo(server, {
 const port = 3000;
 app.use(express.json());
 app.use(cors({
-  origin: ["http://127.0.0.1:5501", "http://localhost:5173"], // Allow the frontend's origin
+  origin: ["http://127.0.0.1:5501", "http://localhost:5173", "https://iot-production-df7c.up.railway.app", "https://shiribiswas.netlify.app"], // Allow the frontend's origin
   methods: "GET, POST",
   credentials: true
 }));

@@ -21,9 +21,9 @@ const Nav = ({ menuVal }) => {
       <nav>
         <div className="flex justify-between mb-6 px-2 md:mb-16">
           <h1 className="font-bold uppercase">
-            <a href="/" className="text-xl">
+            <div className="text-xl">
               Order <span className="text-[#ff6864] font-bold">Bot</span>
-            </a>
+            </div>
           </h1>
           {/* Hamburger Menu Icon for Mobile */}
           <div
